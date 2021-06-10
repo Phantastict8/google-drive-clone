@@ -24,11 +24,10 @@ const index = () => {
                     <input type="text" placeholder="Search in Drive" />
                     <ExpandMoreIcon />
                 </div>
-
-
-
             </div>
 
+
+            
             <div className="header__icons">
                 <span>
                     <HelpOutlineIcon />
