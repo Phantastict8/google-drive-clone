@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import '../../styles/NewFile.css';
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     paper: {
         position: 'absolute',
         width: 400,
-        backgroundColor: theme.palatte.background.paper,
+        backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
@@ -50,12 +50,12 @@ const NewFile = () => {
     };
 
     const handleUpload = () => {
-        setUploading(true);
+        setUploading(true)
 
         storage
             .ref(`files/${file.name}`)
             .put(file)
-            .then(snapshop => {
+            .then(snapshot => {
                 console.log(snapshot);
 
                 storage
@@ -66,14 +66,14 @@ const NewFile = () => {
                         db.collection('myFiles').add({
                             timestamp:
                                 firebase.firestore.FieldValue.serverTimestamp(),
-                                caption: file.name,
-                                fileUrl: url,
-                                size: snapshot._delegate.byteTransferred,
-                        })
+                            caption: file.name,
+                            fileUrl: url,
+                            size: snapshot._delegate.bytesTransferred,
+                        });
 
-                        setUploading(false)
-                        setOpen(false)
-                        setFile(null)
+                        setUploading(false);
+                        setOpen(false);
+                        setFile(null);
                     });
             });
     };
