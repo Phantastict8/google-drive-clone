@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../../styles/FileItem.CSS';
+import '../../styles/FileItem.css';
 
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
 
